@@ -1,10 +1,11 @@
 import sys
 class Store:
-    def __init__(self, payment_method, balance, pin):
+    def __init__(self, payment_method, balance, pin): # self is an object, while the others are attributes
         self.payment_method = payment_method  # cash is false, credit card is true
         self.balance = balance
         self.pin = pin
-
+# set methods are those which help to assign a value
+# get methods help to return a value
     def set_payment_method(self, payment):
         self.payment_method = payment
 
@@ -46,7 +47,9 @@ class Shirt(Store):
     def get_price(self):
         return self.price
 
-# Dictionary menu
+# Instantiating all the 10 objects
+# So for example, Shirt3 is an object while Shirt is the class
+# As you can see we can assign values in the class according to the attributes that we defined earlier
 
 Shirt1 = Shirt("White", "Supreme", "L", 500)
 Shirt2 = Shirt("Blue", "Nike", "M", 70)
@@ -58,6 +61,8 @@ Shirt7 = Shirt("Violet", "Khadims", "XS", 29)
 Shirt8 = Shirt("Black", "Apple", "M", 150)
 Shirt9 = Shirt("Orange", "UnderArmour", "S", 80)
 Shirt10 = Shirt("Brown", "Samsung", "L", 30)
+
+# Dictionary menu
 
 dShirt1 = {"Index": 1, "Brand": Shirt1.get_brand(), "Colour": Shirt1.get_colour(), "Size": Shirt1.get_size(),
            "Price": Shirt1.get_price()}
@@ -142,7 +147,7 @@ while not purchased:
             bank = Store(False, 1000, "0")
             new_balance = float(bank.get_balance()) - float(shirt_price)
             bank.set_balance(new_balance)
-            print('You Have $' + str(new_balance) + ' Left')
+            print('You Have $' + str(new_balance) + ' left')
             purchased = True
         elif int(payment_method) == 1:
             bank = Store(True, 1000, "654321")
